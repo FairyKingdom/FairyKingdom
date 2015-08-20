@@ -42,6 +42,7 @@ public class FairyKingdom
     @EventHandler
     public void preInit(FMLInitializationEvent event){
     	authorsFromGithub = loadListFromUrl("https://raw.githubusercontent.com/FairyKingdom/FairyKingdom/master/lists/authors.txt");
+    	setModMeta();
     }
     
     @EventHandler
