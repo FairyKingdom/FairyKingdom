@@ -18,6 +18,8 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import fairykingdom.block.FairyKingdomBlocks;
+import fairykingdom.item.FairyKingdomItems;
 
 @Mod(name = FairyKingdom.NAME, modid = FairyKingdom.MODID, version = FairyKingdom.VERSION)
 public class FairyKingdom
@@ -47,7 +49,8 @@ public class FairyKingdom
     
     @EventHandler
     public void init(FMLInitializationEvent event){
-    	
+    	FairyKingdomBlocks.initBlocks();
+    	FairyKingdomItems.initItems();
     }
     
     @EventHandler
@@ -58,7 +61,6 @@ public class FairyKingdom
     /**
      * Creates a list from a url
      */
-    @SuppressWarnings("null")
 	private ArrayList<String> loadListFromUrl(String urlString)
     {
     	try	{     
