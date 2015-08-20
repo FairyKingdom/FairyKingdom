@@ -29,7 +29,7 @@ public class FairyKingdom
     public static final String MODID = "fairykingdom";
     public static final String VERSION = "0.1";
     
-    public static final List<String> authorsCurrentVersion = Arrays.asList(new String[] {"Ruukas"});
+    public static final List<String> authorsCurrentVersion = Arrays.asList(new String[] {"Ruukas", "PirateCody"});
     public static ArrayList<String> authorsFromGithub;
 
 
