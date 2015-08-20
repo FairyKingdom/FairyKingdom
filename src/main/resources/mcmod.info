@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fairykingdom",
+  "name": "Fairy Kingdom",
+  "description": "A roleplaying mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/FairyKingdom/FairyKingdom",
+  "updateUrl": "",
+  "authorList": ["Ruukas"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
