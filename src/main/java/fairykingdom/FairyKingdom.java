@@ -20,6 +20,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import fairykingdom.block.FairyKingdomBlocks;
 import fairykingdom.item.FairyKingdomItems;
+import fairykingdom.proxy.CommonProxy;
 
 @Mod(name = FairyKingdom.NAME, modid = FairyKingdom.MODID, version = FairyKingdom.VERSION)
 public class FairyKingdom
@@ -35,8 +36,8 @@ public class FairyKingdom
     @Metadata(MODID)
     public static ModMetadata meta;
 
-	//@SidedProxy(clientSide = "fairykingdom.proxy.ClientProxy", serverSide = "fairykingdom.proxy.CommonProxy")
-	//public static CommonProxy proxy;
+	@SidedProxy(clientSide = "fairykingdom.proxy.ClientProxy", serverSide = "fairykingdom.proxy.CommonProxy")
+	public static CommonProxy proxy;
 	
 	@Instance(MODID)
 	public static FairyKingdom instance;
@@ -97,7 +98,7 @@ public class FairyKingdom
         //meta.url = "";
         meta.logoFile = "";
         meta.version = VERSION;
-        if(authorsFromGithub != null){
+        if(authorsFromGithub != null && !authorsCurrentVersion.isEmpty()){
         	meta.authorList = authorsFromGithub;
     		FMLLog.getLogger().info("[" + NAME + "] Using author list loaded from GitHub.");
         }
