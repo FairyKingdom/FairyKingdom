@@ -1,11 +1,12 @@
 package fairykingdom.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 
 public class FairyKingdomItems {
-	public static Item sticky;
+	public static Item advancedIronSword;
 
 	public static void initItems() {
-		sticky = new FairyKingdomItem("sticky");
+		advancedIronSword = new KingdomItemAdvancedSword("kingdomIronSword", ToolMaterial.IRON);
 	}
 }
