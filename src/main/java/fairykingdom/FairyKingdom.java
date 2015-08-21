@@ -19,6 +19,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import fairykingdom.block.FairyKingdomBlocks;
+import fairykingdom.entities.FairyKingdomEntities;
 import fairykingdom.item.FairyKingdomItems;
 import fairykingdom.proxy.CommonProxy;
 
@@ -46,6 +47,8 @@ public class FairyKingdom
     public void preInit(FMLInitializationEvent event){
     	authorsFromGithub = loadListFromUrl("https://raw.githubusercontent.com/FairyKingdom/FairyKingdom/master/lists/authors.txt");
     	setModMeta();
+    	FairyKingdomEntities.init();
+    	
     }
     
     @EventHandler
