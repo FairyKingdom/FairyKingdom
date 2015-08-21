@@ -14,6 +14,15 @@ public class FairyKingdomEntities {
 		
 	}
 	
+	
+	
+	public static void registerModProjectile(Class entityClass, String name){
+		
+		EntityRegistry.registerModEntity(entityClass, name, ++startEntityID, 
+				FairyKingdom.instance, 64, 10, true);
+	}
+	
+	
 	/*
 	 * For Mobs without a spawn egg
 	 */
