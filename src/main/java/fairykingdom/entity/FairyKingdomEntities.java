@@ -1,19 +1,19 @@
-package fairykingdom.entities;
+package fairykingdom.entity;
 
-import net.minecraft.entity.EntityList;
+import org.lwjgl.util.Color;
+
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fairykingdom.FairyKingdom;
+import net.minecraft.entity.EntityList;
 
 public class FairyKingdomEntities {
 	
-	static int startEntityID;
-	static int i;
+	private static int startEntityID;
+	private static Color color = new Color();
 	
 	public static void init(){
-		
-		
-	}
-	
+		EntityRegistry.registerGlobalEntityID(FairyKingdomTibi.class, "tibi", EntityRegistry.findGlobalUniqueEntityId(), 0x7AE8FF, 0x47FFE2);
+	}	
 	
 	
 	public static void registerModProjectile(Class entityClass, String name){
@@ -23,7 +23,7 @@ public class FairyKingdomEntities {
 	}
 	
 	
-	/*
+	/**
 	 * For Mobs without a spawn egg
 	 */
 	public static void registerModEntity(Class entityClass, String name){
@@ -33,17 +33,15 @@ public class FairyKingdomEntities {
 		
 	}
 	
-	/*
-	 * for mobs with a spawn egg
+	/**
+	 * Registers a spawn egg for the given Entity
 	 */
 	public static void registerModEntityEgg(Class entityClass, String name, int primary, int secondary){
 		
 		registerModEntity(entityClass, name);
 		
-		if (i == 0){
-			registerSpawnEgg(name, primary, secondary);
-			++i;
-		}
+		registerSpawnEgg(name, primary, secondary);
+
 		
 	}
 
@@ -53,8 +51,8 @@ public class FairyKingdomEntities {
 	}
 	
 	
-	/*
-	 * gets a unique mob ID to prevent conflicts with other mods/entities
+	/**
+	 * Gets an unique mob ID to prevent conflicts with other entities
 	 */
 	public static int getUniqueEntityId(){
 		

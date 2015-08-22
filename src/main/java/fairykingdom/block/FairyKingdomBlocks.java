@@ -11,6 +11,5 @@ public class FairyKingdomBlocks {
 	
 	
 	public static void initBlocks() {
-		GameRegistry.registerBlock(oreTest, "TestOre");
 	}
 }
