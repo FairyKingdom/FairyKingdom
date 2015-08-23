@@ -6,10 +6,11 @@ import net.minecraft.block.material.Material;
 
 public class FairyKingdomBlocks {
 	
-	public static Block oreTest = new FairyKingdomBlock("TestOre", Material.rock);
-	public static Block stony = new FairyKingdomBlock("blocky", Material.rock);
-	
+	//public static Block stony;
+	public static Block oreTest;
 	
 	public static void initBlocks() {
+		//stony = new FairyKingdomBlock("stony", Material.rock);
+		oreTest = new FairyKingdomBlock("TestOre", Material.rock);
 	}
 }

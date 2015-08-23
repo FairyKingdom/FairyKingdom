@@ -1,10 +1,5 @@
 package fairykingdom;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import fairykingdom.block.FairyKingdomBlocks;
 import fairykingdom.entity.FairyKingdomEntities;
+import fairykingdom.helpers.UrlListHelper;
 import fairykingdom.item.FairyKingdomItems;
 import fairykingdom.proxy.CommonProxy;
 
@@ -45,9 +41,8 @@ public class FairyKingdom
     
     @EventHandler
     public void preInit(FMLInitializationEvent event){
-    	authorsFromGithub = loadListFromUrl("https://raw.githubusercontent.com/FairyKingdom/FairyKingdom/master/lists/authors.txt");
+    	authorsFromGithub = UrlListHelper.loadListFromUrl("https://raw.githubusercontent.com/FairyKingdom/FairyKingdom/master/lists/authors.txt");
     	setModMeta();
-    	
     }
     
     @EventHandler
@@ -61,36 +56,8 @@ public class FairyKingdom
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
-    	
     }
     
-    /**
-     * Creates a list from a url
-     */
-	private ArrayList<String> loadListFromUrl(String urlString)
-    {
-    	try	{     
-        	URL url = new URL(urlString);
-    		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-    		String urlLine;
-    		ArrayList<String> list = new ArrayList<String>();
-
-    		while ((urlLine = in.readLine()) != null){
-    			list.add(urlLine);     
-    		}
-    		FMLLog.getLogger().info("[" + NAME + "] Succesfully loaded " + urlString);        
-
-    		in.close();
-        	return list;
-    	}
-    	catch (MalformedURLException e){
-    		FMLLog.getLogger().info("[" + NAME + "] Couldn't read " + urlString + " MalformedURLException");
-    	}
-    	catch (IOException e){
-    		FMLLog.getLogger().info("[" + NAME + "] Couldn't read " + urlString + " IOException");
-    	}
-		return null;
-    }
     
     /**
      * Fills the mcmod.info file
