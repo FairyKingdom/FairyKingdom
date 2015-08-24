@@ -27,7 +27,7 @@ public class FairyKingdomWorldGeneration implements IWorldGenerator{
 
 		private void generateSurface(World world, Random random, int x, int z)
 		{
-			addOreSpawn(FairyKingdomBlocks.oreTest, world, random, x, z, 16, 16, 2 + random.nextInt(3), 9, 0, 48);
+			
 		}
 
 		private void generateNether(World world, Random random, int x, int z)
@@ -37,6 +37,7 @@ public class FairyKingdomWorldGeneration implements IWorldGenerator{
 
 		private void generateEnd(World world, Random random, int x, int z)
 		{
+			addEndOreSpawn(FairyKingdomBlocks.magicOre, world, random, x, z, 16, 16, 1, 10, 0, 100);
 		
 		}
 		
@@ -54,6 +55,17 @@ public class FairyKingdomWorldGeneration implements IWorldGenerator{
 				int posY = minY + random.nextInt(maxY - minY);
 				int posZ = blockZPos + random.nextInt(maxZ);
 				new WorldGenMinable(block, maxVeinSize).generate(world, random, posX, posY, posZ);
+			}
+		}
+		
+		private void addEndOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY)
+		{
+			for (int i = 0; i < chanceToSpawn; i++)
+			{
+				int posX = blockXPos + random.nextInt(maxX);
+				int posY = minY + random.nextInt(maxY - minY);
+				int posZ = blockZPos + random.nextInt(maxZ);
+				new EndGenMinable(block, maxVeinSize).generate(world, random, posX, posY, posZ);
 			}
 		}
 

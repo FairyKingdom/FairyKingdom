@@ -13,8 +13,10 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import fairykingdom.block.FairyKingdomBlocks;
 import fairykingdom.entity.FairyKingdomEntities;
+import fairykingdom.generation.FairyKingdomWorldGeneration;
 import fairykingdom.helpers.UrlListHelper;
 import fairykingdom.item.FairyKingdomItems;
 import fairykingdom.proxy.CommonProxy;
@@ -38,6 +40,8 @@ public class FairyKingdom
 	
 	@Instance(MODID)
 	public static FairyKingdom instance;
+	
+	FairyKingdomWorldGeneration eventWorldGen = new FairyKingdomWorldGeneration();
     
     @EventHandler
     public void preInit(FMLInitializationEvent event){
@@ -50,6 +54,8 @@ public class FairyKingdom
     	FairyKingdomEntities.init();
     	FairyKingdomBlocks.initBlocks();
     	FairyKingdomItems.initItems();
+    	
+    	GameRegistry.registerWorldGenerator(eventWorldGen, 0);
     	
     	proxy.registerRenderers();
     }
